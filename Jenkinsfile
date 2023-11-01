@@ -8,9 +8,14 @@ pipeline {
                 url: 'https://github.com/NourelAmalMbarek/5SAE5-G5-projet1.git'
             }
         }
-        stage('MVN CLEAN AND COMPILE') {
-            steps{
-                sh 'mvn clean compile'
+    stage('MVN CLEAN ') {
+            steps {
+                sh 'mvn clean '
+            }
+        }
+        stage('MVN COMPILE ') {
+            steps {
+                sh 'mvn  compile'
             }
         }
      }
