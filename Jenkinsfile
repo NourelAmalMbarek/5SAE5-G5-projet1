@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('GIT') {
             steps {
-                git branch: 'master',
-                url: 'https://github.com/NourelAmalMbarek/5SAE5-G5-projet1.git'
+                git branch: 'RimaChemengui-5SAE5-G5',
+                url: 'https://github.com/NourelAmalMbarek/5SAE5-G5-projet1/tree/RimaChemengui-5SAE5-G5'
             }
         }
         stage('MVN CLEAN AND COMPILE') {
@@ -13,12 +13,20 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
-           stage('MVN SONARQUBE ') {
-        steps {
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+ stage('RUN TESTS') {
+            steps {
+                sh 'mvn test'
             }
         }
-     }
-  }
-        
-
+        stage('BUILD PACKAGE') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+        stage('DEPLOY') {
+            steps {
+                sh 'mvn deploy'
+            }
+        }
+}
+}
