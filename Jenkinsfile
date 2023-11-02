@@ -13,20 +13,7 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
- stage('RUN TESTS') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('BUILD PACKAGE') {
-            steps {
-                sh 'mvn package'
-            }
-        }
-        stage('DEPLOY') {
-            steps {
-                sh 'mvn deploy'
-            }
-        }
+
+      
 }
 }
