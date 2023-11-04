@@ -73,3 +73,5 @@ i
 9src/main/java/tn/esprit/spring/entities/Subscription.java,b\1\b14f6a0a178231e0f89e93b66a3e59d59cba7516
 ;
 Jenkinsfile,0\c\0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
+u
+Esrc/test/java/tn/esprit/spring/GestionStationSkiApplicationTests.java,0\f\0f5ea7723fcc4abcf63acd8ef82f883d15edcff1
