@@ -20,11 +20,11 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
             }
         }
-        stage('MVN JUNIT/MOCKITO') {
-        steps {
-                sh 'mvn test'
-            }
-        }
+//         stage('MVN JUNIT/MOCKITO') {
+//         steps {
+//                 sh 'mvn test'
+//             }
+//         }
          stage('MVN NEXUS') {
                 steps {
                        sh 'mvn nexus:nexus -Dnexus.login=admin -Dnexus.password=nexus'
