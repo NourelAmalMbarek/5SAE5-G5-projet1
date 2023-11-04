@@ -77,3 +77,5 @@ x
 Hsrc/main/java/tn/esprit/spring/repositories/IRegistrationRepository.java,5\d\5d9c54ec8edc1e6350a81339fbf19fe76df67318
 G
 gestion-station-ski.iml,f\a\fa0e12ceb7a43a09e261610526ab120dbc388373
+l
+<src/test/java/tn/esprit/spring/RegistrationServiceTests.java,1\c\1ce870d8546df13c6c64c03ad5abed498d2a6cf1

@@ -25,3 +25,11 @@ o
 ?src/main/java/tn/esprit/spring/services/CourseServicesImpl.java,0\1\01fa9837c47d482b8f625f856938eb70145b955f
 u
 Esrc/main/java/tn/esprit/spring/services/RegistrationServicesImpl.java,1\7\170cdb1f723b66a83ce93d8e309420db97459837
+l
+<src/test/java/tn/esprit/spring/RegistrationServiceTests.java,1\c\1ce870d8546df13c6c64c03ad5abed498d2a6cf1
+k
+;src/main/java/tn/esprit/spring/services/IPisteServices.java,0\6\06afc287a34eb92b26961674acd8a0cef72f5ea0
+n
+>src/main/java/tn/esprit/spring/services/PisteServicesImpl.java,b\f\bf4af52d67a618ab4d5eb8352b8433fdc62fc461
+q
+Asrc/main/java/tn/esprit/spring/repositories/IPisteRepository.java,a\3\a3edb5e4816e44e2b8dbc4c4eaa920490276ccf6
