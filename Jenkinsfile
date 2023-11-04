@@ -13,6 +13,8 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
+
+
            stage('MVN SONARQUBE ') {
         steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
@@ -23,6 +25,12 @@ pipeline {
                 sh 'mvn test'
             }
         }
+         stage('MVN NEXUS') {
+                steps {
+                       sh 'mvn nexus:nexus -Dnexus.login=admin -Dnexus.password=nexus'
+                    }
+                }
+
         
      }
   }
