@@ -79,3 +79,7 @@ G
 gestion-station-ski.iml,f\a\fa0e12ceb7a43a09e261610526ab120dbc388373
 l
 <src/test/java/tn/esprit/spring/RegistrationServiceTests.java,1\c\1ce870d8546df13c6c64c03ad5abed498d2a6cf1
+>
+Dockerfile.txt,b\e\be43c0fb4a1bab1c8655cc56ff17a1c9e804a9fa
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a

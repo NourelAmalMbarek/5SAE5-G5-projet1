@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: tn.esprit.spring.RegistrationServiceTests
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.72 s <<< FAILURE! - in tn.esprit.spring.RegistrationServiceTests
+testAddRegistrationAndAssignToSkierAndCourse_Success  Time elapsed: 0.12 s  <<< ERROR!
+java.lang.NullPointerException
+	at tn.esprit.spring.RegistrationServiceTests.testAddRegistrationAndAssignToSkierAndCourse_Success(RegistrationServiceTests.java:100)
+
