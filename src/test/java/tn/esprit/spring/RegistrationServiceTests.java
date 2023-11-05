@@ -1,5 +1,6 @@
 package tn.esprit.spring;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -34,7 +35,8 @@ public class RegistrationServiceTests {
     private ICourseRepository courseRepository;
 
     @Test
-    public void testAddRegistrationAndAssignToSkier() {
+    @Order(1)
+     void testAddRegistrationAndAssignToSkier() {
         // Créer des objets Skier et Registration simulés pour le test
         Skier skier = new Skier();
         skier.setNumSkier(1L);
@@ -53,7 +55,8 @@ public class RegistrationServiceTests {
     }
 
     @Test
-    public void testAssignRegistrationToCourse() {
+    @Order(2)
+     void testAssignRegistrationToCourse() {
         // Créer des objets Registration et Course simulés pour le test
         Registration registration = new Registration();
         registration.setNumRegistration(1L);
@@ -75,7 +78,8 @@ public class RegistrationServiceTests {
 
     // Ajoutez d'autres méthodes de test selon les besoins pour tester les différents scénarios de votre service.
     @Test
-    public void testAddRegistrationAndAssignToSkierAndCourse_Success() {
+    @Order(3)
+     void testAddRegistrationAndAssignToSkierAndCourse_Success() {
         // Créez des objets Skier, Course et Registration simulés pour le test
         Skier skier = new Skier();
         skier.setNumSkier(1L);
@@ -100,7 +104,8 @@ public class RegistrationServiceTests {
     }
 
     @Test
-    public void testAddRegistrationAndAssignToSkierAndCourse_AlreadyRegistered() {
+    @Order(4)
+     void testAddRegistrationAndAssignToSkierAndCourse_AlreadyRegistered() {
         // Créez des objets Skier, Course et Registration simulés pour le test
         Skier skier = new Skier();
         skier.setNumSkier(1L);
