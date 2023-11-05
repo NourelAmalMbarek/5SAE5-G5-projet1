@@ -27,3 +27,5 @@ i
 Jenkinsfile,0\c\0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
 4
 mvnw,5\d\5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d
+p
+@src/main/java/tn/esprit/spring/GestionStationSkiApplication.java,8\5\857a9e0854dcfe1da43a9d3f66f5b44d822f3116
