@@ -3,3 +3,8 @@
 java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(û˜ö üÿÿÿÿ
 U
 java:S4684'"@Replace this persistent entity with a simple POJO or DTO object.(¦æî(
+^
+java:S1128"ARemove this unused import 'tn.esprit.spring.entities.Instructor'.(¥á‚É8­˜´©º1
+d
+java:S1128
+"GRemove this unused import 'tn.esprit.spring.entities.TypeSubscription'.(êœî¢8®˜´©º1
