@@ -21,16 +21,12 @@ pipeline {
             }
         }
 
-//                     stage('Test Unit') {
-//                           steps {
-//                                 sh 'mvn test'
-//                                 }
-//                                    }
-//           stage('NEXUS') {
-//              steps {
-//                    sh 'mvn deploy'
-//                  }
-//               }
+                    stage('Test Unit') {
+                          steps {
+                                sh 'mvn test'
+                                }
+                                   }
+
 stage('NEXUS') {
    steps {
                 sh 'mvn deploy -Dmaven.test.skip=true';
