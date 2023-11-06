@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('GIT') {
             steps {
-                git branch: ' ElairNaoures-5SAE5-G5',
+                git branch: 'ElairNaoures-5SAE5-G5',
                 url: 'https://github.com/NourelAmalMbarek/5SAE5-G5-projet1.git'
             }
         }
