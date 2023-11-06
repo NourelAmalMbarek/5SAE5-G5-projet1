@@ -1,13 +1,20 @@
 pipeline {
     agent any
 
-    stages {
-        stage('GIT') {
+//     stages {
+//         stage('GIT') {
+//             steps {
+//                 git branch: 'ElairNaoures-5SAE5-G5',
+//                 url: 'https://github.com/NourelAmalMbarek/5SAE5-G5-projet1.git'
+//             }
+//         }
+stages {
+        stage('Checkout') {
             steps {
-                git branch: 'ElairNaoures-5SAE5-G5',
-                url: 'https://github.com/NourelAmalMbarek/5SAE5-G5-projet1.git'
+                checkout scm
             }
         }
+
         stage('MVN CLEAN AND COMPILE') {
             steps{
                 sh 'mvn clean compile'
