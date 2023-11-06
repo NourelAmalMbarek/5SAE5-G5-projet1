@@ -39,7 +39,7 @@ pipeline {
                                stage('Docker Hub') {
                                    steps {
                                        script {
-                                           sh 'docker login -u rimachemengui -p dckr_pat_r126eCxHuD-1RxG9UGWC8cPAbmI'
+                                           sh 'docker login -u rimachemengui -p dckr_pat_V8mHArp9TO5h7FCk6I13lk9btfI'
                                        }
                                    }
                                }
