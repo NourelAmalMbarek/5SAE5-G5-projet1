@@ -28,6 +28,38 @@ pipeline {
                         sh 'mvn deploy -DaltDeploymentRepository=deploymentRepo::default::http://localhost:8081/repository/maven-releases/ -Dnexus.user=admin -Dnexus.password=nexus'
                     }
                 }
+                stage('Build Docker Image') {
+                                   steps {
+                                       script {
+                                           sh 'docker build -t rimachemengui/skier .'
+                                       }
+                                   }
+                               }
+
+                               stage('Docker Hub') {
+                                   steps {
+                                       script {
+                                           sh 'docker login -u rimachemengui -p dckr_pat_r126eCxHuD-1RxG9UGWC8cPAbmI'
+                                       }
+                                   }
+                               }
+
+                        stage('Push Docker Image') {
+                            steps {
+                                script {
+                                    sh 'docker push rimachemengui/skier:latest'
+                                }
+                            }
+                        }
+
+                        stage('Docker compose') {
+                            steps {
+                                script {
+                                    sh 'docker compose up -d'
+                                }
+                            }
+                        }
+
 
      }
   }
