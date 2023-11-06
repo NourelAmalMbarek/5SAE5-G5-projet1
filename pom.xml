@@ -95,21 +95,21 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-<!--	<distributionManagement>-->
-<!--		<repository>-->
-<!--			<id>deploymentRepo</id>-->
-<!--			<name>Nexus deploy</name>-->
-<!--			<url>http://192.168.56.3:8081/repository/maven-releases/</url>-->
-<!--		</repository>-->
-<!--	</distributionManagement>-->
-	<!-- Deploy to Nexus -->
 	<distributionManagement>
 		<repository>
 			<id>deploymentRepo</id>
-			<name>Nexus Repository</name>
-			<url>http://localhost:8081/repository/maven-releases/</url>
+			<name>Nexus deploy</name>
+			<url>http://192.168.56.3:8081/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
+	<!-- Deploy to Nexus -->
+<!--	<distributionManagement>-->
+<!--		<repository>-->
+<!--			<id>deploymentRepo</id>-->
+<!--			<name>Nexus Repository</name>-->
+<!--			<url>http://localhost:8081/repository/maven-releases/</url>-->
+<!--		</repository>-->
+<!--	</distributionManagement>-->
 	<build>
 
 		<plugins>
