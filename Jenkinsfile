@@ -25,11 +25,16 @@ pipeline {
 //                 sh 'mvn test'
 //             }
 //         }
-          stage('NEXUS') {
-                               steps {
-                                   sh 'mvn nexus:nexus -Dnexus.login=admin -Dnexus.password=nexus'
-                               }
-                              }
+stage('NEXUS') {
+                      steps {
+                          sh 'mvn deploy'
+                      }
+                     }
+//           stage('NEXUS') {
+//                                steps {
+//                                    sh 'mvn nexus:nexus -Dnexus.login=admin -Dnexus.password=nexus'
+//                                }
+//                               }
 
         
      }
