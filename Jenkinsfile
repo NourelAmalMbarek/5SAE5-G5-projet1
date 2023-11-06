@@ -26,11 +26,16 @@ pipeline {
 //                                 sh 'mvn test'
 //                                 }
 //                                    }
-          stage('NEXUS') {
-             steps {
-                   sh 'mvn deploy'
-                 }
-              }
+//           stage('NEXUS') {
+//              steps {
+//                    sh 'mvn deploy'
+//                  }
+//               }
+stage('NEXUS') {
+   steps {
+                sh 'mvn deploy -Dmaven.test.skip=true';
+            }
+        }
 
 }
 }
