@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import tn.esprit.spring.entities.*;
 import tn.esprit.spring.repositories.*;
 
+import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,7 +31,7 @@ public class SkierServicesImpl implements ISkierServices {
     }
 
     @Override
-    public Skier addSkier(Skier skier) {
+   /* public Skier addSkier(Skier skier) {
         switch (skier.getSubscription().getTypeSub()) {
             case ANNUAL:
                 skier.getSubscription().setEndDate(skier.getSubscription().getStartDate().plusYears(1));
@@ -43,15 +44,25 @@ public class SkierServicesImpl implements ISkierServices {
                 break;
         }
         return skierRepository.save(skier);
+    }*/
+    @Transactional
+    public Skier addSkier(Skier skier) {
+        return skierRepository.save(skier);
     }
 
     @Override
     public Skier assignSkierToSubscription(Long numSkier, Long numSubscription) {
         Skier skier = skierRepository.findById(numSkier).orElse(null);
-        Subscription subscription = subscriptionRepository.findById(numSubscription).orElse(null);
-        skier.setSubscription(subscription);
-        return skierRepository.save(skier);
+        if(skier != null) {
+            Subscription subscription = subscriptionRepository.findById(numSubscription).orElse(null);
+            if(subscription != null) {
+                skier.setSubscription(subscription);
+                return skierRepository.save(skier);
+            }
+        }
+        return null; // or throw an exception based on your use case
     }
+
 
     @Override
     public Skier addSkierAndAssignToCourse(Skier skier, Long numCourse) {
