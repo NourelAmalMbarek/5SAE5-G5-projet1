@@ -24,12 +24,42 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
             }
         }
-        stage('Nexus Deploy') {
+        stage('NEXUS DEPLOY') {
                     steps {
                         sh 'mvn deploy -DaltDeploymentRepository=deploymentRepo::default::http://localhost:8081/repository/maven-releases/ -Dnexus.user=admin -Dnexus.password=nexus'
                     }
                 }
-             
+            stage('BUILD DOCKER IMAGE') {
+                                   steps {
+                                       script {
+                                           sh 'docker build -t nourelamalmbarek/piste .'
+                                       }
+                                   }
+                               }
+
+                               stage('DOCKER HUB') {
+                                   steps {
+                                       script {
+                                           sh 'docker login -u nourelamal -p dckr_pat_OToyCN4_vafNmBcXmwjxRZXzyiM'
+                                       }
+                                   }
+                               }
+
+                        stage('PUSH DOCKER IMAGE') {
+                            steps {
+                                script {
+                                    sh 'docker push nourelamalmbarek/piste:latest'
+                                }
+                            }
+                        }
+
+                        stage('DOCKER COMPOSE') {
+                            steps {
+                                script {
+                                    sh 'docker compose up -d'
+                                }
+                            }
+                        } 
      }
   }
         
