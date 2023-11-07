@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
     image: mariadb:10.4.21
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=
     ports:
       - "3307:3306"
     volumes:
