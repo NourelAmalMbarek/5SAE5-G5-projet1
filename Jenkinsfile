@@ -25,7 +25,7 @@ pipeline {
 //                           steps {
 //                                 sh 'mvn test'
 //                                 }
-                                   }
+//                                    }
 //                                    post {
 //                                            always {
 //                                                // Publier les résultats des tests JUnit
@@ -73,9 +73,9 @@ stage('BUILD DOCKER IMAGE') {
            echo 'docker-compose'
             }
         }
-}
 
 
+        }
 
 
     post {
