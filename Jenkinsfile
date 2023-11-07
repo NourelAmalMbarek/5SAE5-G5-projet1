@@ -64,7 +64,7 @@ stage('NEXUS') {
                     sh 'docker --version'
 
             // Utilisez la commande 'docker build' pour construire l'image
-                     sh 'docker build -t elairnaoures/gestion-station-ski .'
+                     sh 'docker build -t elairnaoures/gestion-station-ski-1.0 .'
 
             // Exécutez 'docker images' pour afficher la liste des images Docker
                      //sh 'docker images'
