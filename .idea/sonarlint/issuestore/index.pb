@@ -21,3 +21,15 @@ b
 2src/main/java/tn/esprit/spring/entities/Piste.java,3\1\3109cf28b62c0a51e679e44e6e7d372ec28c8315
 G
 gestion-station-ski.iml,f\a\fa0e12ceb7a43a09e261610526ab120dbc388373
+p
+@src/main/java/tn/esprit/spring/GestionStationSkiApplication.java,8\5\857a9e0854dcfe1da43a9d3f66f5b44d822f3116
+l
+<src/main/java/tn/esprit/spring/services/ICourseServices.java,1\a\1acc49b2d5a701b1ab2165810a2afa93fe539509
+p
+@src/main/java/tn/esprit/spring/services/IInstructorServices.java,9\9\99bf8f80b3f5034f4d8a36392fc525235a90410d
+k
+;src/main/java/tn/esprit/spring/services/IPisteServices.java,0\6\06afc287a34eb92b26961674acd8a0cef72f5ea0
+r
+Bsrc/main/java/tn/esprit/spring/services/IRegistrationServices.java,1\b\1be24bb2a444dc299a90214d4560049acc26b8ce
+k
+;src/main/java/tn/esprit/spring/services/ISkierServices.java,6\b\6bd64399c17304cfe0583996aff3a8a9ab392935

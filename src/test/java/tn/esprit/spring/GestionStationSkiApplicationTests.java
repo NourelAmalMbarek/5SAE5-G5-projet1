@@ -5,9 +5,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-//import org.mockito.MockitoAnnotations;
+
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
+
 import tn.esprit.spring.entities.Color;
 import tn.esprit.spring.entities.Piste;
 import tn.esprit.spring.repositories.IPisteRepository;
@@ -22,8 +22,8 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@SpringBootTest
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+
+
 @ExtendWith(MockitoExtension.class)
 class PisteServicesImplTest {
 
