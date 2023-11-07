@@ -99,15 +99,15 @@ stage('NEXUS') {
 //  sh "docker push  elairnaoures/gestion-station-ski-1.0:$DOCKER_IMAGE_TAG"
 //            }
 //                    }
-//      stage('docker-compose') {
-//           steps {
-//              sh 'docker compose up -d'
-//                 echo 'docker-compose'
-//                  }
-//              }
-//
-//
-//              }
+     stage('docker-compose') {
+          steps {
+             sh 'docker compose up -d'
+                echo 'docker-compose'
+                 }
+             }
+
+
+             }
 
 
          post {
