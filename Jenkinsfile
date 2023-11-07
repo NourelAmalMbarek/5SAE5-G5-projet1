@@ -73,7 +73,7 @@ stage('BUILD DOCKER IMAGE') {
            echo 'docker-compose'
             }
         }
-
+}
 
 
 
@@ -86,5 +86,4 @@ stage('BUILD DOCKER IMAGE') {
             echo 'fail'
         }
     }
-}
 }
