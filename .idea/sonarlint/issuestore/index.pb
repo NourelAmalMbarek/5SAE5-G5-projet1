@@ -85,3 +85,5 @@ B
 docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
 8
 .project,f\8\f8b41ce76d7b80d2b47e91b5f92c15f00eccf187
+G
+gestion-station-ski.iml,f\a\fa0e12ceb7a43a09e261610526ab120dbc388373
