@@ -13,16 +13,17 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
+           stage('MVN JUNIT/MOCKITO') {
+        steps {
+                sh 'mvn test'
+            }
+        }
            stage('MVN SONARQUBE ') {
         steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
             }
         }
-        stage('MVN JUNIT/MOCKITO') {
-        steps {
-                sh 'mvn test'
-            }
-        }
+     
         
      }
   }
