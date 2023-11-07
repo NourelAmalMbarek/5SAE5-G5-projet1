@@ -64,7 +64,7 @@ stage('NEXUS') {
                     sh 'docker --version'
 
             // Utilisez la commande 'docker build' pour construire l'image
-                     sh 'docker build -t elairnaoures/gestion-station-ski-1.0 .'
+                     sh 'docker build -t elairnaoures/gestion-station-ski .'
 
             // Exécutez 'docker images' pour afficher la liste des images Docker
                      //sh 'docker images'
@@ -77,7 +77,7 @@ stage('NEXUS') {
 
          // Utilisez la commande 'docker build' pour construire l'image
                  sh 'docker login -u elairnaoures -p elairnaoures'
-                 sh 'docker push elairnaoures/gestion-station-ski-1.0 '
+                 sh 'docker push elairnaoures/gestion-station-ski '
 
 
        }
