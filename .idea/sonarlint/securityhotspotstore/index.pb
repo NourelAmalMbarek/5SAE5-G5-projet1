@@ -43,3 +43,9 @@ r
 Bsrc/main/java/tn/esprit/spring/repositories/ICourseRepository.java,f\9\f9bf74238ced6ba01ce93cbeb4134b9b7c44eb6b
 l
 <src/main/java/tn/esprit/spring/services/ICourseServices.java,1\a\1acc49b2d5a701b1ab2165810a2afa93fe539509
+>
+Dockerfile.txt,b\e\be43c0fb4a1bab1c8655cc56ff17a1c9e804a9fa
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
+8
+.project,f\8\f8b41ce76d7b80d2b47e91b5f92c15f00eccf187

@@ -79,3 +79,9 @@ Esrc/test/java/tn/esprit/spring/GestionStationSkiApplicationTests.java,0\f\0f5e
 mvnw,5\d\5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d
 u
 Esrc/main/java/tn/esprit/spring/services/RegistrationServicesImpl.java,1\7\170cdb1f723b66a83ce93d8e309420db97459837
+>
+Dockerfile.txt,b\e\be43c0fb4a1bab1c8655cc56ff17a1c9e804a9fa
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
+8
+.project,f\8\f8b41ce76d7b80d2b47e91b5f92c15f00eccf187
