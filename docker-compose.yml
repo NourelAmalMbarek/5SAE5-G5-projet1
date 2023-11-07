@@ -1,24 +1,35 @@
-version: "3.8"
+version: '3'
+
 services:
-  mysqldb:
-    image: mysql:5.7
-    restart: unless-stopped
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    ports:
-      - "3306:3306"
-    volumes:
-      - db:/var/lib/mysql
-  user-backend:
-    depends_on:
-      - mysqldb
-    image: elairnaoures/gestion-station-ski-1.0
+
+
+  GestionStationSki:
+    container_name: gestionStationSki
     restart: on-failure
-    environment:
-      MYSQL_ROOT_PASSWORD:
     ports:
-      - "6868:6868"
+      - "8089:8089"
+    hostname: gestionStationSki
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/stationSki?createDatabaseIfNotExist=true
+      - spring.datasource.username=root
+      - spring.datasource.password=
+    image: elairnaoures/gestion-station-ski-1.0
     stdin_open: true
     tty: true
+    depends_on:
+      - docker-mysql_4
+
+
+
+  docker-mysql_4:
+    container_name: mysql4
+    restart: unless-stopped
+    image: mariadb:10.4.21
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3307:3306"
+    volumes:
+      - db:/var/lib/mysql
 volumes:
   db:
