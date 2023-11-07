@@ -10,7 +10,7 @@ services:
       - "8089:8089"
     hostname: gestionStationSki
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/stationSki?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql_4:3306/stationSki?createDatabaseIfNotExist=true
       - spring.datasource.username=root
       - spring.datasource.password=
     image: elairnaoures/gestion-station-ski-1.0
@@ -28,7 +28,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes:
       - db:/var/lib/mysql
 volumes:
