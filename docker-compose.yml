@@ -12,7 +12,7 @@ services:
   user-backend:
     depends_on:
       - mysqldb
-    image: elairnaoures/devops_project:1.2
+    image: elairnaoures/gestion-station-ski-1.0
     restart: on-failure
     environment:
       MYSQL_ROOT_PASSWORD:
