@@ -75,7 +75,7 @@ stage('BUILD DOCKER IMAGE') {
         }
 
 
-        }
+
 
 
     post {
@@ -86,4 +86,5 @@ stage('BUILD DOCKER IMAGE') {
             echo 'fail'
         }
     }
+}
 }
