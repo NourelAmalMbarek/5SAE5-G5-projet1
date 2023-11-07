@@ -18,6 +18,12 @@ pipeline {
                 sh 'mvn test'
             }
         }
+
+         stage('MVN SONARQUBE ') {
+        steps {
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+            }
+        }
              
      }
   }
