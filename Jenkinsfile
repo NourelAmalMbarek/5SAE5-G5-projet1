@@ -82,16 +82,23 @@ stage('NEXUS') {
 
        }
       }
-     stage('DOCKER COMPOSE') {
-             steps {
+     stage('docker-compose') {
+          steps {
+             sh 'docker compose up -d'
+                echo 'docker-compose'
+                 }
+             }
 
-         // Utilisez la commande 'docker build' pour construire l'image
 
-                 sh 'docker compose up -d'
+             }
 
 
-       }
-      }
-
+         post {
+             success {
+                 echo 'Build successful'
+             }
+             failure {
+                 echo 'fail'
+             }
+         }
      }
- }
