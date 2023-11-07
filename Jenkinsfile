@@ -40,18 +40,25 @@ stage('NEXUS') {
         }
 
 
-      stage('Building image') {
-                steps {
-            // Assurez-vous que Docker est installé sur l'agent Jenkins
-                    sh 'docker --version'
+//       stage('Building image') {
+//                 steps {
+//             // Assurez-vous que Docker est installé sur l'agent Jenkins
+//                     sh 'docker --version'
+//
+//             // Utilisez la commande 'docker build' pour construire l'image
+//                      sh 'docker build -t elairnaoures/gestion-station-ski-1.0 .'
+//
+//             // Exécutez 'docker images' pour afficher la liste des images Docker
+//                      //sh 'docker images'
+//           }
+//          }
+stage('BUILD DOCKER IMAGE') {
+    steps {
 
-            // Utilisez la commande 'docker build' pour construire l'image
-                     sh 'docker build -t elairnaoures/gestion-station-ski-1.0 .'
+             sh 'docker build -t $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG -f Dockerfile ./'
 
-            // Exécutez 'docker images' pour afficher la liste des images Docker
-                     //sh 'docker images'
-          }
-         }
+    }
+}
 
 
 
