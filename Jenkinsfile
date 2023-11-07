@@ -44,13 +44,7 @@ pipeline {
                                    }
                                }
 
-                        stage('Push Docker Image') {
-                            steps {
-                                script {
-                                    sh 'docker push rimachemengui/skier:latest'
-                                }
-                            }
-                        }
+                      
 
                         stage('Docker compose') {
                             steps {
