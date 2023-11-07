@@ -25,7 +25,9 @@ pipeline {
         }
         stage('Nexus Deploy') {
                     steps {
-                        sh 'mvn deploy -DaltDeploymentRepository=deploymentRepo::default::http://localhost:8081/repository/maven-releases/ -Dnexus.user=admin -Dnexus.password=nexus'
+                    
+                      sh 'mvn deploy -DaltDeploymentRepository=deploymentRepo::default::http://localhost:8081/repository/maven-releases/ -Dnexus.user=admin -Dnexus.password=nexus'
+                      sh 'docker build -t rimachemengui/skier .'
                     }
                 }
                 stage('Build Docker Image') {
@@ -44,14 +46,7 @@ pipeline {
                                    }
                                }
 
-                       stage('docker push image') {
-                            steps {
-                                script {
-                                    sh 'docker push rimachemengui/skier:latest'
-                                }
-                            }
-                        }
-
+                      
                         stage('Docker compose') {
                             steps {
                                 script {
