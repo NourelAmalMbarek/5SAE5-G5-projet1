@@ -21,17 +21,6 @@ pipeline {
             }
         }
 
-//                     stage('Test Unit') {
-//                           steps {
-//                                 sh 'mvn test'
-//                                 }
-//                                    }
-//                                    post {
-//                                            always {
-//                                                // Publier les résultats des tests JUnit
-//                                                junit '**/target/surefire-reports/TEST-*.xml'
-//                                            }
-//                                        }
 
 stage('NEXUS') {
    steps {

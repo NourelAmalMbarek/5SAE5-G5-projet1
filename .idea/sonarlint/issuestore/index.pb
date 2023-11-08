@@ -57,16 +57,12 @@ n
 >src/main/java/tn/esprit/spring/services/SkierServicesImpl.java,3\3\33a7f3cb7da67e63398f5287557c38222e298242
 s
 Csrc/main/java/tn/esprit/spring/controllers/SkierRestController.java,1\6\168ff8f345bf5f6d587643a1ae98c8a1a3f893bf
-r
-Bsrc/test/java/tn/esprit/spring/SubscriptionRestControllerTest.java,2\8\28c7c8eda38d39c2e88d8ab3c84af2274fb4643a
 u
 Esrc/main/java/tn/esprit/spring/services/SubscriptionServicesImpl.java,d\c\dc280a9271809c8500db57875e2294465d671151
 x
 Hsrc/main/java/tn/esprit/spring/repositories/ISubscriptionRepository.java,b\3\b3b434c39e75c16f72faa9cff226b89699ac752b
 r
 Bsrc/main/java/tn/esprit/spring/services/ISubscriptionServices.java,d\5\d5c22a07d06923c2531bfe7c80e2c2576f49044e
-i
-9src/test/java/tn/esprit/spring/SkierServicesImplTest.java,a\1\a14f762bcc899f4f5183b67665d19f6a4d465446
 l
 <src/test/java/tn/esprit/spring/CourseRestControllerTest.java,9\2\92f33bb0c8298a9dedbd6bb0fa9bfe0356f976bd
 i
@@ -79,8 +75,6 @@ Esrc/test/java/tn/esprit/spring/GestionStationSkiApplicationTests.java,0\f\0f5e
 mvnw,5\d\5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d
 u
 Esrc/main/java/tn/esprit/spring/services/RegistrationServicesImpl.java,1\7\170cdb1f723b66a83ce93d8e309420db97459837
->
-Dockerfile.txt,b\e\be43c0fb4a1bab1c8655cc56ff17a1c9e804a9fa
 B
 docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
 8

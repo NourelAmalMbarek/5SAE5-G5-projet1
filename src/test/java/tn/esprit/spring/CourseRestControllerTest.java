@@ -20,7 +20,7 @@ import tn.esprit.spring.entities.Course;
 import tn.esprit.spring.entities.Support;
 import tn.esprit.spring.entities.TypeCourse;
 import tn.esprit.spring.services.ICourseServices;
-import tn.esprit.spring.services.ICourseServices;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 
 
