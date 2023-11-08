@@ -44,38 +44,23 @@ pipeline {
                                        }
                                    }
                                }
+stage('PUSH DOCKER IMAGE') {
+                            steps {
+                                script {
+                                    sh 'docker push nourelamalmbarek/piste:latest'
+                                }
+                            }
+                        }
 
-          stage('Docker Build') {
+                        stage('DOCKER COMPOSE') {
+                            steps {
+                                script {
+                                    sh 'docker compose up -d'
+                                }
+                            }
+                        }
+
         
-            steps { 
-                def NEXUS_DOCKER_REPO = 'http://192.168.33.10:8088/repository/docker-nexus/'
-                    echo 'Building docker Image'
-                    sh 'docker build -t $NEXUS_DOCKER_REPO/nour:$BUILD_NUMBER .'
-                }
-        }
-
-       stage('Docker Login') {
-            steps {
-                echo 'Nexus Docker Repository Login'
-                script{
-                    withCredentials([usernamePassword(credentialsId: 'nexus_creds', usernameVariable: 'admin', passwordVariable: 'nexus' )]){
-                       sh ' echo $PASS | docker login -u $USER --password-stdin $NEXUS_DOCKER_REPO'
-                    }
-                   
-                }
-            }
-        }
-
-        stage('Docker Push') {
-            steps {
-                echo 'Pushing Imgaet to docker hub'
-                sh 'docker push $NEXUS_DOCKER_REPO/nour:$BUILD_NUMBER'
-            }
-        }
-
-
-
-
        
      }
   }
