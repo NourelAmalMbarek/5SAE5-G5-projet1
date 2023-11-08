@@ -30,33 +30,30 @@ pipeline {
                     
                     }
                 }
-                stage("Docker build") {
-            steps {
-               
-                sh 'docker build -t rimachemengui/skier .'
-               
-            }
-        }
-        stage('Push image to Hub'){
-            steps{
-                script{
-                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u rimachemengui -p dckr_pat_V8mHArp9TO5h7FCk6I13lk9btfI'
+                stage('build docker image') {
+                                   steps {
+                                       script {
+                                           sh 'docker build -t rimachemengui/skier .'
+                                       }
+                                   }
+                               }
 
-}
-                  // sh 'docker push rimachemengui/skier:latest'
-                }
-            }
-        }
-        
-        stage('Docker compose') {
-             steps {
-                script {
-                      sh 'docker compose up -d'
-                 }
-             }
-        }
+                               stage('docker hub') {
+                                   steps {
+                                       script {
+                                           sh 'docker login -u rimachemengui -p dckr_pat_V8mHArp9TO5h7FCk6I13lk9btfI'
+                                       }
+                                   }
+                               }
 
+                       
+                        stage('docker compose') {
+                            steps {
+                                script {
+                                    sh 'docker compose up -d'
+                                }
+                            }
+                        }
 
      }
   }
