@@ -46,7 +46,13 @@ pipeline {
                                    }
                                }
                                
-
+                         stage('PUSH DOCKER IMAGE') {
+                            steps {
+                                script {
+                                    sh 'docker push nourelamalmbarek/piste:latest'
+                                }
+                            }
+                        }
                       
                         stage('Docker compose') {
                             steps {
@@ -57,25 +63,7 @@ pipeline {
                         }
 
 
-        stage('Prometheus') {
-            steps {
-                echo 'Setting up Prometheus..'
-                // Configurez ici votre fichier prometheus.yml pour utiliser l'exposition Prometheus de votre application
-                // Par exemple:
-                  scrape_configs:
-                     - job_name: 'skier'
-                     static_configs:
-                       - targets: ['192.168.132.10:8089']
-            }
-        }
-        stage('Grafana') {
-            steps {
-                echo 'Setting up Grafana..'
-                // Configurez ici votre dashboard Grafana pour visualiser les métriques de votre application
-                // Par exemple:
-                   grafanaDashboard('Jenkins', 'http://192.168.33.10:3000/d/haryan-jenkins/jenkins')
-            }
-        }
+      
 
 
      }
