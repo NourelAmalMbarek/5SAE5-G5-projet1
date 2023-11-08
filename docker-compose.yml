@@ -1,45 +1,33 @@
 version: '3.3'
+
 services:
-  mysqldb:
+  mysql:
     image: mysql:5.7
-
-    container_name: mysql
-    ports:
-      - "3305:3306"
+    restart: unless-stopped
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
-      MYSQL_DATABASE: "stationski"
-      MYSQL_ROOT_HOST: "%"
-    healthcheck:
-      test: [ "CMD-SHELL", "mysqladmin ping -h localhost" ]
-      timeout: 20s
-      retries: 10
-    restart: always
-    ulimits:
-      nofile:
-        soft: 65536
-        hard: 65536
+      MYSQL_ROOT_PASSWORD:   # Provide a root password
+      MYSQL_DATABASE: stationSki
+    ports:
+      - 3306:3306  # Port de la base de données MySQL
+    volumes:
+      - db:/var/lib/mysql
 
-
-  spring-application:
-    image: nedrabenyoussef/skier
+  nedra-app:
+    depends_on:
+      - mysql
+    image: nedra01/skier:1.0 # L'image Docker de votre application
     restart: on-failure
     ports:
-      - "8089:8089"
-    depends_on:
-      - mysqldb
+      - 8089:8089
     environment:
       SPRING_APPLICATION_JSON: '{
-           "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/stationSki?createDatabaseIfNotExist=true",
-           "spring.datasource.username" : "root",
-           "spring.datasource.password" : "",
-           "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
-           "spring.jpa.hibernate.ddl-auto" : "update"
-         }'
-
-      stdin_open: true
-      tty: true
-      user: root
-
+        "spring.datasource.url": "jdbc:mysql://mysql:3306/stationSki?createDatabaseIfNoExist=true",
+        "spring.datasource.username": "root",  
+        "spring.datasource.password": null,
+        "spring.jpa.hibernate.ddl-auto": "update",
+        "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.MySQL5InnoDBDialect"
+      }'
+    stdin_open: true
+    tty: true
 volumes:
   db:
