@@ -44,7 +44,7 @@ pipeline {
                    sh 'docker login -u rimachemengui -p dckr_pat_V8mHArp9TO5h7FCk6I13lk9btfI'
 
 }
-                   sh 'docker push rimachemengui/skier:latest'
+                  // sh 'docker push rimachemengui/skier:latest'
                 }
             }
         }
