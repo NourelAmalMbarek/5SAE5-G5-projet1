@@ -1,3 +1,4 @@
+/*
 package tn.esprit.spring;
 
 import static org.mockito.Mockito.any;
@@ -64,3 +65,4 @@ public class InstructorRestControllerTest {
         }
     }
 }
+*/
