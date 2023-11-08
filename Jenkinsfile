@@ -59,7 +59,23 @@ pipeline {
                                     sh 'docker compose up -d'
                                 }
                             }
-                        } 
+                        }
+        stage('Push to Nexus') {
+    steps {
+        script {
+            // Replace the placeholders with your Nexus Repository details
+            def nexusUrl = 'http://192.168.33.10:8081/repository/docker-nexus/'  // Replace with your Nexus URL
+            def nexusRepo = 'docker-nexus'      // Replace with your Nexus Docker repository name
+            def username = 'admin'          // Replace with your Nexus username
+            def password = 'nexus'          // Replace with your Nexus password
+
+            sh "docker tag nourelamalmbarek/piste:latest http://192.168.33.10:8081/repository/docker-nexus/nourelamalmbarek/piste:latest"
+            sh "docker login -u admin -p nexus http://192.168.33.10:8081/repository/docker-nexus/"
+            sh "docker push http://192.168.33.10:8081/repository/docker-nexus/nourelamalmbarek/piste:latest"
+            sh "docker logout http://192.168.33.10:8081/repository/docker-nexus/"
+        }
+    }
+}
      }
   }
         
