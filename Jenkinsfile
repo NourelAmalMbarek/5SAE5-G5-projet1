@@ -42,12 +42,14 @@ pipeline {
                                    steps {
                                        script {
                                           withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                                            sh 'docker login -u rimachemengui -p ${dockerhubpwd}'
+                                            sh 'docker login -u rimachemengui -p dckr_pat_V8mHArp9TO5h7FCk6I13lk9btfI'
 
                                     
                                        }
                                    }
                                }
+                
+                             
                              stage('docker push image') {
                                    steps {
                                        script {
