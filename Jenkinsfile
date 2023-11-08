@@ -44,22 +44,6 @@ pipeline {
                                        }
                                    }
                                }
-
-                        stage('PUSH DOCKER IMAGE') {
-                            steps {
-                                script {
-                                    sh 'docker push nourelamalmbarek/piste:latest'
-                                }
-                            }
-                        }
-
-                        stage('DOCKER COMPOSE') {
-                            steps {
-                                script {
-                                    sh 'docker compose up -d'
-                                }
-                            }
-                        }
         stage('Push to Nexus') {
     steps {
         script {
