@@ -1,0 +1,39 @@
+version: '3.4'
+
+services:
+  mysqldb:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: stationSki
+      MYSQL_PASSWORD: root
+    ports:
+      - '3306:3306'
+    volumes:
+      - type: volume
+        source: db_vol
+        target: /var/lib/mysql
+    networks:
+      - common-net
+
+  backendserver:
+    container_name: 'backendserver'
+    image: 'ahmedbnammar/ahmedbenammar-5sae-g5'
+    ports:
+      - "8089:8089"
+    depends_on:
+      - "mysqldb"
+    restart: unless-stopped
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysqldb:3306/stationSki?autoReconnect=true&failOverReadOnly=false&maxReconnects=10'
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    networks:
+      - common-net
+
+volumes:
+  db_vol:
+
+networks:
+  common-net:
+    driver: bridge
