@@ -4,7 +4,7 @@ services:
 
 
   GestionStationSki:
-    container_name: gestionStationSki1
+    container_name: gestionStationSki
     restart: on-failure
     ports:
       - "8089:8089"
