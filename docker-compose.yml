@@ -30,10 +30,69 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     networks:
       - common-net
+  frontend:
+    image: 'ahmedbnammar/5sae5-g5-front'
+    depends_on:
+      - "backendserver"
+    ports:
+      - "80:80"
+    networks:
+      - common-net
+  sonarqube:
+    image: sonarqube:8.9.7-community
+    ports:
+      - "9000:9000"
+    networks:
+      - sonarnet
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+  nexus:
+    image: sonatype/nexus3:latest
+    ports:
+      - "8081:8081"
+    volumes:
+      - nexus_data:/nexus-data
+    environment:
+      - NEXUS_CONTEXT=/
+    networks:
+      - common-net
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - prometheus_config:/etc/prometheus
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - common-net
 
+  grafana:
+    image: grafana/grafana:latest
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - grafana_config:/etc/grafana
+      - grafana_plugins:/var/lib/grafana/plugins
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - common-net
 volumes:
   db_vol:
-
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
+  nexus_data:
+  prometheus_config:
+  prometheus_data:
+  grafana_data:
+  grafana_config:
+  grafana_plugins:
 networks:
   common-net:
+    driver: bridge
+  sonarnet:
     driver: bridge
