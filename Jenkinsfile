@@ -40,7 +40,7 @@ pipeline {
                                stage('DOCKER HUB') {
                                    steps {
                                        script {
-                                           sh 'docker login -u nouramal -p dckr_pat_4HOLlehTtZlai3D1emjd3FzT3aw'
+                                           sh 'docker login -u nourelamal -p dckr_pat_f6R1vr31aHaP1EMBrYRg_2hUvK8'
                                        }
                                    }
                                }
