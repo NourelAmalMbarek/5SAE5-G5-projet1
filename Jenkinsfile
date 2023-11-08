@@ -50,9 +50,7 @@ pipeline {
             // Replace the placeholders with your Nexus Repository details
             def nexusUrl = 'http://192.168.33.10:8088/repository/docker-nexus/'  // Replace with your Nexus URL
             def nexusRepo = 'docker-nexus'      // Replace with your Nexus Docker repository name
-            def username = 'admin'          // Replace with your Nexus username
-            def password = 'nexus'          // Replace with your Nexus password
-
+            
             sh "docker tag nourelamalmbarek/piste:latest $nexusRepo/nourelamalmbarek/piste:latest"
             sh "docker login -u admin -p nexus http://192.168.33.10:8088/repository/docker-nexus/"
             sh "docker push docker push $nexusRepo/nourelamalmbarek/piste:latest"
