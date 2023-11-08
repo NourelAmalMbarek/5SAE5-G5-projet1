@@ -42,16 +42,17 @@ pipeline {
                                    steps {
                                        script {
                                            sh 'docker login -u rimachemengui -p dckr_pat_V8mHArp9TO5h7FCk6I13lk9btfI'
+                                    
                                        }
                                    }
                                }
-                             stage('docker push image') {
-                                   steps {
-                                       script {
-                                           sh 'docker push rimachemengui/skier:latest'
-                                       }
-                                   }
-                               }
+                            // stage('docker push image') {
+                                   //steps {
+                                     //  script {
+                                       //    sh 'docker push rimachemengui/skier:latest'
+                                       //}
+                                   //}
+                               //}
 
                        
                         stage('docker compose') {
