@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 8080
-ADD target/nedra-benyoussef-spring.jar nedra-benyoussef-spring.jar
-ENTRYPOINT ["java", "-jar", "nedra-benyoussef-spring.jar"]
+ADD target/gestion-station-ski-1.0.jar gestion-station-ski-1.0.jar
+ENTRYPOINT ["java","-jar","gestion-station-ski-1.0.jar"]
