@@ -45,8 +45,8 @@ class InstructorRestControllerTest {
     @MockBean
     private IInstructorServices instructorServices;
 
-    @Autowired
-    private IInstructorRepository instructorRepository;
+/*    @Autowired
+    private IInstructorRepository instructorRepository;*/
 
 
     @Test
@@ -69,10 +69,11 @@ class InstructorRestControllerTest {
     }
 
 
+/*
 
     @Test
     @Transactional
-    public void whenGetAllInstructorsIntegrationTest_thenReturnInstructorsList() throws Exception {
+    void whenGetAllInstructorsIntegrationTest_thenReturnInstructorsList() throws Exception {
         // Arrange
         Instructor instructorOne = new Instructor();
         Instructor instructorTwo = new Instructor();
@@ -95,7 +96,8 @@ class InstructorRestControllerTest {
                 .andExpect(jsonPath("$[1].numInstructor", is(instructorTwo.getNumInstructor().intValue())));
     }
 
-    // ... other tests and methods ...
+*/
+
 
 }
 

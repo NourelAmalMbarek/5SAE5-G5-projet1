@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.spring.dto.InstructorDTO;
 import tn.esprit.spring.entities.Instructor;
 import tn.esprit.spring.services.IInstructorServices;
 
@@ -19,13 +20,19 @@ public class InstructorRestController {
 
     @Operation(description = "Add Instructor")
     @PostMapping("/add")
-    public Instructor addInstructor(@RequestBody Instructor instructor){
-        return  instructorServices.addInstructor(instructor);
+    public Instructor addInstructor(@RequestBody InstructorDTO instructor){
+        Instructor instructorEntity=convertToEntity(instructor);
+        return  instructorServices.addInstructor(instructorEntity);
     }
     @Operation(description = "Add Instructor and Assign To Course")
     @PutMapping("/addAndAssignToCourse/{numCourse}")
-    public Instructor addAndAssignToInstructor(@RequestBody Instructor instructor, @PathVariable("numCourse")Long numCourse){
-        return  instructorServices.addInstructorAndAssignToCourse(instructor,numCourse);
+    public InstructorDTO addAndAssignToInstructor(@RequestBody InstructorDTO instructorDTO, @PathVariable("numCourse") Long numCourse){
+        // Convert InstructorDTO to Instructor entity
+        Instructor instructor = convertToEntity(instructorDTO);
+        // Perform the operation
+        Instructor updatedInstructor = instructorServices.addInstructorAndAssignToCourse(instructor, numCourse);
+        // Convert the updated Instructor entity back to DTO
+        return convertToDTO(updatedInstructor);
     }
     @Operation(description = "Retrieve all Instructors")
     @GetMapping("/all")
@@ -35,14 +42,37 @@ public class InstructorRestController {
 
     @Operation(description = "Update Instructor ")
     @PutMapping("/update")
-    public Instructor updateInstructor(@RequestBody Instructor Instructor){
-        return  instructorServices.updateInstructor(Instructor);
+    public InstructorDTO updateInstructor(@RequestBody InstructorDTO instructorDTO){
+        // You would need to convert InstructorDTO to Instructor entity before saving
+        Instructor instructor = convertToEntity(instructorDTO);
+        Instructor updatedInstructor = instructorServices.updateInstructor(instructor);
+        // After saving, convert the entity back to DTO to return
+        return convertToDTO(updatedInstructor);
     }
 
     @Operation(description = "Retrieve Instructor by Id")
     @GetMapping("/get/{id-instructor}")
     public Instructor getById(@PathVariable("id-instructor") Long numInstructor){
         return instructorServices.retrieveInstructor(numInstructor);
+    }
+    private Instructor convertToEntity(InstructorDTO instructorDTO) {
+        Instructor instructor = new Instructor();
+        instructor.setNumInstructor(instructorDTO.getNumInstructor());
+        instructor.setFirstName(instructorDTO.getFirstName());
+        instructor.setLastName(instructorDTO.getLastName());
+        instructor.setDateOfHire(instructorDTO.getDateOfHire());
+        // Convert and set courses from CourseDTO to Course if necessary
+        return instructor;
+    }
+
+    private InstructorDTO convertToDTO(Instructor instructor) {
+        InstructorDTO instructorDTO = new InstructorDTO();
+        instructorDTO.setNumInstructor(instructor.getNumInstructor());
+        instructorDTO.setFirstName(instructor.getFirstName());
+        instructorDTO.setLastName(instructor.getLastName());
+        instructorDTO.setDateOfHire(instructor.getDateOfHire());
+        // Convert and set courses from Course to CourseDTO if necessary
+        return instructorDTO;
     }
 
 }

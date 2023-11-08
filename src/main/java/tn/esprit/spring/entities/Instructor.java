@@ -16,6 +16,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
+import tn.esprit.spring.dto.InstructorDTO;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -30,5 +32,24 @@ public class Instructor implements Serializable {
 	String lastName;
 	LocalDate dateOfHire;
 	@OneToMany
-	Set<Course> courses;
+	private Set<Course> courses;
+	private Instructor convertToEntity(InstructorDTO instructorDTO) {
+		Instructor instructor = new Instructor();
+		instructor.setNumInstructor(instructorDTO.getNumInstructor());
+		instructor.setFirstName(instructorDTO.getFirstName());
+		instructor.setLastName(instructorDTO.getLastName());
+		instructor.setDateOfHire(instructorDTO.getDateOfHire());
+		// Convert and set courses from CourseDTO to Course if necessary
+		return instructor;
+	}
+
+	private InstructorDTO convertToDTO(Instructor instructor) {
+		InstructorDTO instructorDTO = new InstructorDTO();
+		instructorDTO.setNumInstructor(instructor.getNumInstructor());
+		instructorDTO.setFirstName(instructor.getFirstName());
+		instructorDTO.setLastName(instructor.getLastName());
+		instructorDTO.setDateOfHire(instructor.getDateOfHire());
+		// Convert and set courses from Course to CourseDTO if necessary
+		return instructorDTO;
+	}
 }
