@@ -90,5 +90,5 @@ e
 5src/main/java/tn/esprit/spring/dto/InstructorDTO.java,e\2\e2b05d4de1f9ff0b25cdc933655d92f649203fa0
 n
 >src/test/java/tn/esprit/spring/InstructorServicesImplTest.java,1\a\1a5f5e1db0dea176ab16bc7c14bfa5b869d4d00b
-u
-Esrc/test/java/tn/esprit/spring/InstructorServicesIntegrationTest.java,8\5\850df96eeacb8188b4b351b00c2783a29f601e7e
+^
+.src/test/java/resources/application.properties,5\3\53ef8751b9f5e896133dfa8c61b5374929a9378e

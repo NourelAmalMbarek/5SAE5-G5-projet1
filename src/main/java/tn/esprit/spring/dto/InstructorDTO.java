@@ -10,7 +10,7 @@ import java.util.Set;
 @Getter
 @Setter
 public class InstructorDTO {
-    private Integer numInstructor;
+    private Long numInstructor;
     private String firstName;
     private String lastName;
     private LocalDate dateOfHire;

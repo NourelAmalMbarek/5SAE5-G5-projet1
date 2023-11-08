@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InstructorRestController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gestion-station-ski</a> &gt; <a href="index.source.html" class="el_package">tn.esprit.spring.controllers</a> &gt; <span class="el_source">InstructorRestController.java</span></div><h1>InstructorRestController.java</h1><pre class="source lang-java linenums">package tn.esprit.spring.controllers;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+import tn.esprit.spring.dto.InstructorDTO;
+import tn.esprit.spring.entities.Instructor;
+import tn.esprit.spring.services.IInstructorServices;
+
+import java.util.List;
+
+@Tag(name = &quot;\uD83D\uDC69\u200D\uD83C\uDFEB Instructor Management&quot;)
+@RestController
+@RequestMapping(&quot;/instructor&quot;)
+<span class="nc" id="L16">@RequiredArgsConstructor</span>
+public class InstructorRestController {
+
+    private final IInstructorServices instructorServices;
+
+    @Operation(description = &quot;Add Instructor&quot;)
+    @PostMapping(&quot;/add&quot;)
+    public Instructor addInstructor(@RequestBody InstructorDTO instructor){
+<span class="nc" id="L24">        Instructor instructorEntity=convertToEntity(instructor);</span>
+<span class="nc" id="L25">        return  instructorServices.addInstructor(instructorEntity);</span>
+    }
+    @Operation(description = &quot;Add Instructor and Assign To Course&quot;)
+    @PutMapping(&quot;/addAndAssignToCourse/{numCourse}&quot;)
+    public InstructorDTO addAndAssignToInstructor(@RequestBody InstructorDTO instructorDTO, @PathVariable(&quot;numCourse&quot;) Long numCourse){
+        // Convert InstructorDTO to Instructor entity
+<span class="nc" id="L31">        Instructor instructor = convertToEntity(instructorDTO);</span>
+        // Perform the operation
+<span class="nc" id="L33">        Instructor updatedInstructor = instructorServices.addInstructorAndAssignToCourse(instructor, numCourse);</span>
+        // Convert the updated Instructor entity back to DTO
+<span class="nc" id="L35">        return convertToDTO(updatedInstructor);</span>
+    }
+    @Operation(description = &quot;Retrieve all Instructors&quot;)
+    @GetMapping(&quot;/all&quot;)
+    public List&lt;Instructor&gt; getAllInstructors(){
+<span class="nc" id="L40">        return instructorServices.retrieveAllInstructors();</span>
+    }
+
+    @Operation(description = &quot;Update Instructor &quot;)
+    @PutMapping(&quot;/update&quot;)
+    public InstructorDTO updateInstructor(@RequestBody InstructorDTO instructorDTO){
+        // You would need to convert InstructorDTO to Instructor entity before saving
+<span class="nc" id="L47">        Instructor instructor = convertToEntity(instructorDTO);</span>
+<span class="nc" id="L48">        Instructor updatedInstructor = instructorServices.updateInstructor(instructor);</span>
+        // After saving, convert the entity back to DTO to return
+<span class="nc" id="L50">        return convertToDTO(updatedInstructor);</span>
+    }
+
+    @Operation(description = &quot;Retrieve Instructor by Id&quot;)
+    @GetMapping(&quot;/get/{id-instructor}&quot;)
+    public Instructor getById(@PathVariable(&quot;id-instructor&quot;) Long numInstructor){
+<span class="nc" id="L56">        return instructorServices.retrieveInstructor(numInstructor);</span>
+    }
+    private Instructor convertToEntity(InstructorDTO instructorDTO) {
+<span class="nc" id="L59">        Instructor instructor = new Instructor();</span>
+<span class="nc" id="L60">        instructor.setNumInstructor(instructorDTO.getNumInstructor());</span>
+<span class="nc" id="L61">        instructor.setFirstName(instructorDTO.getFirstName());</span>
+<span class="nc" id="L62">        instructor.setLastName(instructorDTO.getLastName());</span>
+<span class="nc" id="L63">        instructor.setDateOfHire(instructorDTO.getDateOfHire());</span>
+        // Convert and set courses from CourseDTO to Course if necessary
+<span class="nc" id="L65">        return instructor;</span>
+    }
+
+    private InstructorDTO convertToDTO(Instructor instructor) {
+<span class="nc" id="L69">        InstructorDTO instructorDTO = new InstructorDTO();</span>
+<span class="nc" id="L70">        instructorDTO.setNumInstructor(instructor.getNumInstructor());</span>
+<span class="nc" id="L71">        instructorDTO.setFirstName(instructor.getFirstName());</span>
+<span class="nc" id="L72">        instructorDTO.setLastName(instructor.getLastName());</span>
+<span class="nc" id="L73">        instructorDTO.setDateOfHire(instructor.getDateOfHire());</span>
+        // Convert and set courses from Course to CourseDTO if necessary
+<span class="nc" id="L75">        return instructorDTO;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

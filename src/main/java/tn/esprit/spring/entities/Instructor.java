@@ -27,7 +27,7 @@ import tn.esprit.spring.dto.InstructorDTO;
 public class Instructor implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	Integer numInstructor;
+	Long numInstructor;
 	String firstName;
 	String lastName;
 	LocalDate dateOfHire;

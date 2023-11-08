@@ -1,20 +1,22 @@
-/*
 package tn.esprit.spring;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.spring.entities.Instructor;
 import tn.esprit.spring.repositories.IInstructorRepository;
 import tn.esprit.spring.services.InstructorServicesImpl;
 
-@ExtendWith(MockitoExtension.class)
- class InstructorServicesImplTest {
+@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
+public class InstructorServicesImplTest {
 
     @InjectMocks
     private InstructorServicesImpl instructorServices;
@@ -23,7 +25,7 @@ import tn.esprit.spring.services.InstructorServicesImpl;
     private IInstructorRepository instructorRepository;
 
     @Test
-     void testAddInstructor() {
+     public void testAddInstructor() {
         Instructor instructor = new Instructor();
         instructor.setFirstName("John");
         instructor.setLastName("Doe");
@@ -33,7 +35,6 @@ import tn.esprit.spring.services.InstructorServicesImpl;
 
         assertEquals("John", savedInstructor.getFirstName());
         assertEquals("Doe", savedInstructor.getLastName());
-        // Add more assertions here as needed
+
     }
 }
-*/
