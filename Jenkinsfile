@@ -48,7 +48,7 @@ pipeline {
                              stage('docker push image') {
                                    steps {
                                        script {
-                                           sh 'docker push rimachemengui/skier:latest'
+                                           sh 'docker push rimachemengui/skier:last'
                                        }
                                    }
                                }
