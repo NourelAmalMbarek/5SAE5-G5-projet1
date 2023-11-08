@@ -49,7 +49,7 @@ pipeline {
                                    }
                                }
                 
-                             
+                               }
                              stage('docker push image') {
                                    steps {
                                        script {
