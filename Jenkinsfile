@@ -1,10 +1,5 @@
 pipeline {
     agent any
-environment {
-        NEXUS_CREDS = credentials('nexus_creds')
-        NEXUS_DOCKER_REPO = 'http://192.168.33.10:8081/repository/docker-nexus/'
-    }
-
     
     stages {
         stage('GIT') {
@@ -53,6 +48,7 @@ environment {
           stage('Docker Build') {
         
             steps { 
+                def NEXUS_DOCKER_REPO = 'http://192.168.33.10:8088/repository/docker-nexus/'
                     echo 'Building docker Image'
                     sh 'docker build -t $NEXUS_DOCKER_REPO/nour:$BUILD_NUMBER .'
                 }
