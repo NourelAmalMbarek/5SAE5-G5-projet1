@@ -5,8 +5,6 @@ q
 Asrc/main/java/tn/esprit/spring/repositories/IPisteRepository.java,a\3\a3edb5e4816e44e2b8dbc4c4eaa920490276ccf6
 c
 3src/test/java/resources/application-test.properties,f\9\f92e5ffaf142f410da73fcc4e69338a95d9b3d81
-u
-Esrc/test/java/tn/esprit/spring/GestionStationSkiApplicationTests.java,0\f\0f5ea7723fcc4abcf63acd8ef82f883d15edcff1
 g
 7src/main/java/tn/esprit/spring/entities/Instructor.java,7\f\7fbcb80622a4077f39cdac7efe11c48a29639762
 x
@@ -90,3 +88,7 @@ B
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
 e
 5src/main/java/tn/esprit/spring/dto/InstructorDTO.java,e\2\e2b05d4de1f9ff0b25cdc933655d92f649203fa0
+n
+>src/test/java/tn/esprit/spring/InstructorServicesImplTest.java,1\a\1a5f5e1db0dea176ab16bc7c14bfa5b869d4d00b
+u
+Esrc/test/java/tn/esprit/spring/InstructorServicesIntegrationTest.java,8\5\850df96eeacb8188b4b351b00c2783a29f601e7e

@@ -79,8 +79,6 @@ Y
 )src/main/resources/application.properties,0\6\06f65155ec73600b9fc5c4dc2883d4bb84d8e284
 B
 docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
-u
-Esrc/test/java/tn/esprit/spring/GestionStationSkiApplicationTests.java,0\f\0f5ea7723fcc4abcf63acd8ef82f883d15edcff1
 ;
 Jenkinsfile,0\c\0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
 7
@@ -90,3 +88,7 @@ Esrc/test/java/tn/esprit/spring/GestionStationSkiApplicationTests.java,0\f\0f5e
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
 e
 5src/main/java/tn/esprit/spring/dto/InstructorDTO.java,e\2\e2b05d4de1f9ff0b25cdc933655d92f649203fa0
+n
+>src/test/java/tn/esprit/spring/InstructorServicesImplTest.java,1\a\1a5f5e1db0dea176ab16bc7c14bfa5b869d4d00b
+u
+Esrc/test/java/tn/esprit/spring/InstructorServicesIntegrationTest.java,8\5\850df96eeacb8188b4b351b00c2783a29f601e7e
