@@ -25,7 +25,7 @@ import lombok.experimental.FieldDefaults;
 public class Instructor implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	Long numInstructor;
+	Integer numInstructor;
 	String firstName;
 	String lastName;
 	LocalDate dateOfHire;
