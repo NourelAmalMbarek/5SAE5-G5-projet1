@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+environment {
+
+            DOCKER_IMAGE_NAME = 'elairnaoures/gestion-station-ski-1.0'
+
+        }
     stages {
         stage('GIT') {
             steps {
