@@ -40,24 +40,27 @@ pipeline {
                                stage('DOCKER HUB') {
                                    steps {
                                        script {
-                                           sh 'docker login -u nourelamal -p dckr_pat_OToyCN4_vafNmBcXmwjxRZXzyiM'
+                                           sh 'docker login -u nouramal -p dckr_pat_4HOLlehTtZlai3D1emjd3FzT3aw'
                                        }
                                    }
                                }
-        stage('Push to Nexus') {
-    steps {
-        script {
-            // Replace the placeholders with your Nexus Repository details
-            def nexusUrl = 'http://192.168.33.10:8088/repository/docker-nexus/'  // Replace with your Nexus URL
-            def nexusRepo = 'docker-nexus'      // Replace with your Nexus Docker repository name
-            
-            sh "docker tag nourelamalmbarek/piste:latest $nexusRepo/nourelamalmbarek/piste:latest"
-            sh "docker login -u admin -p nexus http://192.168.33.10:8088/repository/docker-nexus/"
-            sh "docker push docker push $nexusRepo/nourelamalmbarek/piste:latest"
-            sh "docker logout docker logout $nexusUrl"
-        }
-    }
-}
+stage('PUSH DOCKER IMAGE') {
+                            steps {
+                                script {
+                                    sh 'docker push nourelamalmbarek/piste:latest'
+                                }
+                            }
+                        }
+
+                        stage('DOCKER COMPOSE') {
+                            steps {
+                                script {
+                                    sh 'docker compose up -d'
+                                }
+                            }
+                        }
+
+       
      }
   }
         
