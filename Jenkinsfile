@@ -46,13 +46,15 @@ pipeline {
                                    }
                                }
                                
-                         stage('PUSH DOCKER IMAGE') {
-                            steps {
-                                script {
-                                    sh 'docker push nourelamalmbarek/piste:latest'
-                                }
-                            }
-                        }
+                        stage('Push image '){
+            steps{
+                script{
+                   
+                   sh 'docker push rimachemengui/skier:latest'
+                }
+            }
+        }
+        
                       
                         stage('Docker compose') {
                             steps {
