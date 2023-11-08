@@ -48,7 +48,7 @@ pipeline {
                                 stage('docker push image') {
                             steps {
                                 script {
-                                    sh 'docker push rimachemengui/gestion-station-ski-1.0.jar'
+                                    sh 'docker push rimachemengui/skier:latest'
                                 }
                             }
                         }
