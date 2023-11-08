@@ -46,13 +46,13 @@ pipeline {
                                        }
                                    }
                                }
-                            // stage('docker push image') {
-                                   //steps {
-                                     //  script {
-                                       //    sh 'docker push rimachemengui/skier'
-                                       //}
-                                   //}
-                               //}
+                             stage('docker push image') {
+                                   steps {
+                                       script {
+                                           sh 'docker push rimachemengui/skier'
+                                       }
+                                   }
+                               }
 
                        
                         stage('docker compose') {
