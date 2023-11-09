@@ -50,3 +50,5 @@ t
 Dsrc/main/java/tn/esprit/spring/controllers/CourseRestController.java,7\9\795b2192787c5166cc985268d457ed9c4a8ff685
 l
 <src/test/java/tn/esprit/spring/RegistrationServiceTests.java,1\c\1ce870d8546df13c6c64c03ad5abed498d2a6cf1
+d
+4src/test/java/tn/esprit/spring/CoursServiceTest.java,0\c\0c9a8ec972aa3eed7a8e1ab89d412e301709e3fe

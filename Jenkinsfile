@@ -25,14 +25,14 @@ environment {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
             }
         }
-//   stage('Junit/ Mockito') {
-//             steps {
-//                 echo 'Étape 2 : Nettoyage et compilation avec Maven en cours...'
-//                 sh 'mvn test'  // Nettoie le projet
-//
-//                 echo 'Étape 2 : Nettoyage et compilation avec Maven terminée.'
-//             }
-//         }
+  stage('Junit/ Mockito') {
+            steps {
+                echo 'Étape 2 : Nettoyage et compilation avec Maven en cours...'
+                sh 'mvn test'  // Nettoie le projet
+
+                echo 'Étape 2 : Nettoyage et compilation avec Maven terminée.'
+            }
+        }
 
 stage('NEXUS') {
    steps {
