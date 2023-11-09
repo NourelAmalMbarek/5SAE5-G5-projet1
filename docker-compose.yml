@@ -2,20 +2,21 @@ version: '3.3'
 
 services:
   mysql:
-    image: mysql:5.7
+    image: mysql:latest
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD:   # Provide a root password
+      MYSQL_ROOT_PASSWORD:
       MYSQL_DATABASE: stationSki
     ports:
-      - 3306:3306  # Port de la base de données MySQL
+      - 3309:3306  # Port de la base de données MySQL
     volumes:
       - db:/var/lib/mysql
 
   nedra-app:
     depends_on:
       - mysql
-    image: nedra01/skier:1.0 # L'image Docker de votre application
+    image: nedra01/skier:1.0
+    # L'image Docker de votre application
     restart: on-failure
     ports:
       - 8089:8089
